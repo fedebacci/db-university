@@ -41,7 +41,7 @@ Es: "Analisi 1" è un corso specifico che viene tenuto sia per il corso di laure
 <br />
 Allo stesso modo il corso di laurea in "Matematica" è composto da più corsi specifici, come "Analisi 1" e "Analisi 2", come specificato dalla traccia.
 <br />
-Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `degree_specific_courses`
+Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `degree_specific_courses`.
 
 #### Step 4
 Presumo che un insegnante possa insegnare in più corsi specifici.
@@ -50,4 +50,13 @@ Es: Mario Rossi è un insegnante di matematica che insegna sia nel corso specifi
 <br />
 Allo stesso modo il corso specifico in "Analisi 1" può essere tenuto da più di un professore, come specificato dalla traccia.
 <br />
-Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `specific_courses_teachers`
+Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `specific_courses_teachers`.
+
+## Correzione di Samuel
+Per quanto riguarda l'ipotesi di corsi specifici uguali in corsi di laurea diversi, `se anche i corsi fossero esattamente identici` (cosa che comunque nella realtà non è vera), sarebbe meglio utilizzare due entità diverse con lo stesso nome.
+<br />
+Questo perchè, quando possibile, è sempre preferibile utilizzare una relazione one to many piuttosto che una relazione many to many.
+<br />
+Es:  "Analisi 1" è il nome di due corsi specifici identici tenuti uno per il corso di laurea "Matematica" e uno per il corso di laurea "Fisica".
+<br />
+Diventa quindi una `relazione one to many, preferibile alla relazione many to many`.
