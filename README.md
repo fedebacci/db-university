@@ -37,3 +37,5 @@ Esportare quindi il diagramma in jpg e caricarlo nella repo.
 Presumo che un corso possa appartenere a più corsi di laurea.
 <br />
 Es: Analisi 1 è un corso che viene tenuto sia per il corso di laurea "Matematica" che per il corso di laurea "Fisica".
+<br />
+Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `degree_specific_courses`
