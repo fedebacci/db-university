@@ -52,7 +52,7 @@ Allo stesso modo il corso specifico in "Analisi 1" può essere tenuto da più di
 <br />
 Diventa quindi una relazione many to many, da gestire con una tabella del tipo: `specific_courses_teachers`.
 
-## Correzione di Samuel
+## Correzione di Samuel (step 3)
 Per quanto riguarda l'ipotesi di corsi specifici uguali in corsi di laurea diversi, `se anche i corsi fossero esattamente identici` (cosa che comunque nella realtà non è vera), sarebbe meglio utilizzare due entità diverse con lo stesso nome.
 <br />
 Questo perchè, quando possibile, è sempre preferibile utilizzare una relazione one to many piuttosto che una relazione many to many.
