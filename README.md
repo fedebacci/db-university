@@ -33,6 +33,7 @@ Esportare quindi il diagramma in jpg e caricarlo nella repo.
 <br />
 
 # APPUNTI
+**`NB`**: nel diagramma sono consapevole che le tabelle si ripetono una sola volta, le metto più volte per semplicità grafica (come se ognuna di esse rappresentasse una riga della tabella piuttosto )
 #### Step 3
 Presumo che un corso possa appartenere a più corsi di laurea.
 <br />
