@@ -1,3 +1,5 @@
+# CONSEGNA
+
 Esercizio di oggi: **DB University**
 <br />
 nome repo: `db-university`
@@ -23,3 +25,15 @@ definire anche i tipi di dato di ogni tabella.
 Utilizzare https://www.drawio.com/ per la creazione dello schema.
 <br />
 Esportare quindi il diagramma in jpg e caricarlo nella repo.
+<br />
+<br />
+<br />
+<hr />
+<br />
+<br />
+
+# APPUNTI
+#### Step 3
+Presumo che un corso possa appartenere a più corsi di laurea.
+<br />
+Es: Analisi 1 è un corso che viene tenuto sia per il corso di laurea "Matematica" che per il corso di laurea "Fisica".
