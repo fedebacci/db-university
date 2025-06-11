@@ -114,7 +114,9 @@ WHERE `name` LIKE "Corso di Laurea Magistrale%";
 ### Consegna 7: Da quanti dipartimenti è composta l'università? (12)
 
 ```sql
-
+SELECT 
+	COUNT(*) 
+FROM departments;
 ```
 
 
