@@ -115,7 +115,7 @@ WHERE `name` LIKE "Corso di Laurea Magistrale%";
 
 ```sql
 SELECT 
-	COUNT(*) 
+	COUNT(*) AS `result`
 FROM departments;
 ```
 
@@ -128,7 +128,46 @@ FROM departments;
 
 ```sql
 SELECT 
-	COUNT(*)
+	COUNT(*) AS `result`
 FROM teachers
 WHERE `phone` IS NULL;
+```
+
+
+
+
+
+
+<br />
+<br />
+<br />
+
+# ESERCIZIO BONUS
+
+
+
+### Consegna 1: Contare quanti iscritti ci sono stati ogni anno
+
+```sql
+```
+
+
+
+### Consegna 2: Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+```sql
+```
+
+
+
+### Consegna 3: Calcolare la media dei voti di ogni appello d'esame
+
+```sql
+```
+
+
+
+### Consegna 4: Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+```sql
 ```
