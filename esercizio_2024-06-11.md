@@ -149,6 +149,11 @@ WHERE `phone` IS NULL;
 ### Consegna 1: Contare quanti iscritti ci sono stati ogni anno
 
 ```sql
+SELECT 
+	YEAR(`enrolment_date`) AS `enrolment_year`, 
+    COUNT(`id`) AS `sudents_enrolled`
+FROM students
+GROUP BY YEAR(`enrolment_date`);
 ```
 
 
