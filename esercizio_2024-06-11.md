@@ -171,8 +171,14 @@ GROUP BY `office_address`;
 
 
 ### Consegna 3: Calcolare la media dei voti di ogni appello d'esame
-
+In aggiunta mostro anche quanti studenti hanno partecipato
 ```sql
+SELECT 
+	`exam_id`,
+    COUNT(`student_id`) AS `students_count`,
+	AVG(`vote`) AS `vote_average`
+FROM exam_student
+GROUP BY `exam_id`;
 ```
 
 
