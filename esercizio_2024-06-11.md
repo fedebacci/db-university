@@ -99,7 +99,11 @@ WHERE `date` = "2020-06-20" AND `hour` > "14:00:00";
 ### Consegna 6: Selezionare tutti i corsi di laurea magistrale (38)
 
 ```sql
-
+SELECT 
+	*
+    #COUNT(*)
+FROM degrees
+WHERE `name` LIKE "Corso di Laurea Magistrale%";
 ```
 
 
