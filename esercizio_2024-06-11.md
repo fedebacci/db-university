@@ -127,5 +127,8 @@ FROM departments;
 ### Consegna 8: Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
 ```sql
-
+SELECT 
+	COUNT(*)
+FROM teachers
+WHERE `phone` IS NULL;
 ```
