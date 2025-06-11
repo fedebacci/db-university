@@ -161,6 +161,11 @@ GROUP BY YEAR(`enrolment_date`);
 ### Consegna 2: Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
 ```sql
+SELECT 
+	COUNT(`id`) AS `teachers_in_office`, 
+    `office_address`
+FROM teachers
+GROUP BY `office_address`;
 ```
 
 
