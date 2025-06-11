@@ -21,7 +21,7 @@ Risolvere anche le query del file GROUP BY e caricarle le soluzioni in un nuovo 
 <br />
 <br />
 
-# ESERCIZIO
+# ESERCIZIO `Query con SELECT`
 
 
 
@@ -30,7 +30,7 @@ Risolvere anche le query del file GROUP BY e caricarle le soluzioni in un nuovo 
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM students
 WHERE YEAR(`date_of_birth`) = 1990;
 ```
@@ -43,7 +43,7 @@ WHERE YEAR(`date_of_birth`) = 1990;
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM courses
 WHERE `cfu` > 10;
 ```
@@ -56,7 +56,7 @@ WHERE `cfu` > 10;
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM students
 WHERE YEAR(`date_of_birth`) < 1995;
 ```
@@ -71,7 +71,7 @@ WHERE YEAR(`date_of_birth`) < 1995;
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM courses
 WHERE `period` = "I semestre" AND `year` = 1;
 ```
@@ -86,7 +86,7 @@ WHERE `period` = "I semestre" AND `year` = 1;
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM exams
 WHERE `date` = "2020-06-20" AND `hour` > "14:00:00";
 ```
@@ -101,7 +101,7 @@ WHERE `date` = "2020-06-20" AND `hour` > "14:00:00";
 ```sql
 SELECT 
 	*
-    #COUNT(*)
+    #COUNT(`id`)
 FROM degrees
 WHERE `name` LIKE "Corso di Laurea Magistrale%";
 ```
@@ -115,7 +115,7 @@ WHERE `name` LIKE "Corso di Laurea Magistrale%";
 
 ```sql
 SELECT 
-	COUNT(*) AS `result`
+	COUNT(`id`) AS `result`
 FROM departments;
 ```
 
@@ -128,7 +128,7 @@ FROM departments;
 
 ```sql
 SELECT 
-	COUNT(*) AS `result`
+	COUNT(`id`) AS `result`
 FROM teachers
 WHERE `phone` IS NULL;
 ```
@@ -142,7 +142,7 @@ WHERE `phone` IS NULL;
 <br />
 <br />
 
-# ESERCIZIO BONUS
+# ESERCIZIO BONUS `Query con GROUP BY`
 
 
 
