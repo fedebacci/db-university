@@ -41,7 +41,11 @@ WHERE YEAR(`date_of_birth`) = 1990;
 ### Consegna 2: Selezionare tutti i corsi che valgono più di 10 crediti (479)
 
 ```sql
-
+SELECT 
+	*
+    #COUNT(*)
+FROM courses
+WHERE `cfu` > 10;
 ```
 
 
