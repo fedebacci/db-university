@@ -97,6 +97,39 @@ WHERE `teachers`.`id` = 44;
 ### Consegna 4: Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 
 ```sql
+SELECT 
+	`students`.`id` AS `student_id`,
+    `students`.`surname` AS `student_surname`,
+    `students`.`name` AS `student_name`,
+    `students`.`date_of_birth` AS `student_date_of_birth`,
+    `students`.`fiscal_code` AS `student_fiscal_code`,
+    `students`.`enrolment_date` AS `student_enrolment_date`,
+    `students`.`registration_number` AS `student_registration_number`,
+    `students`.`email` AS `student_email`,
+    
+    `degrees`.`id` AS `degree_id`,
+    `degrees`.`name` AS `degree_name`,
+    `degrees`.`level` AS `degree_level`,
+    `degrees`.`address` AS `degree_address`,
+    `degrees`.`email` AS `degree_email`,
+    `degrees`.`website` AS `degree_website`,
+    
+    `departments`.`id` AS `department_id`,
+    `departments`.`name` AS `department_name`,
+    `departments`.`address` AS `department_address`,
+    `departments`.`phone` AS `department_phone`,
+    `departments`.`email` AS `department_email`,
+    `departments`.`website` AS `department_website`
+    
+FROM `students`
+
+INNER JOIN `degrees`
+ON `degrees`.`id` = `students`.`degree_id`
+
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+
+ORDER BY `students`.`surname`, `students`.`name`;
 ```
 
 
