@@ -1,5 +1,5 @@
 # CONSEGNA
-Utilizzando lo stesso database di ieri, eseguite le query in allegato. Caricate un secondo file nella stessa repo di ieri (db-university) con le query di oggi.
+Utilizzando lo stesso database di ieri, eseguite le query in allegato. Caricate un secondo file nella stessa repo di ieri (**db-university**) con le query di oggi.
 
 
 
@@ -17,6 +17,17 @@ Utilizzando lo stesso database di ieri, eseguite le query in allegato. Caricate 
 ### Consegna 1: Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
 
 ```sql
+SELECT
+	`degrees`.`name` AS `degree_name`,
+    
+	`students`.*
+    
+FROM `degrees`
+
+INNER JOIN `students`
+ON `degrees`.`id` = `students`.`degree_id`
+
+WHERE `degrees`.`name` = "Corso di Laurea in Economia";
 ```
 
 
