@@ -18,9 +18,17 @@ Utilizzando lo stesso database di ieri, eseguite le query in allegato. Caricate 
 
 ```sql
 SELECT
+	`degrees`.`id` AS `degree_id`,
 	`degrees`.`name` AS `degree_name`,
     
-	`students`.*
+	`students`.`id`,
+	`students`.`name`,
+	`students`.`surname`,
+	`students`.`date_of_birth`,
+	`students`.`fiscal_code`,
+	`students`.`enrolment_date`,
+	`students`.`registration_number`,
+	`students`.`email`
     
 FROM `degrees`
 
@@ -35,6 +43,23 @@ WHERE `degrees`.`name` = "Corso di Laurea in Economia";
 ### Consegna 2: Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
 
 ```sql
+SELECT
+	`departments`.`id` AS `department_id`,
+	`departments`.`name` AS `department_name`,
+    
+    `degrees`.`id`,
+    `degrees`.`name`,
+    `degrees`.`level`,
+    `degrees`.`address`,
+    `degrees`.`email`,
+    `degrees`.`website`
+    
+FROM `degrees`
+
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+
+WHERE `degrees`.`level` = "magistrale" AND `departments`.`name` = "Dipartimento di Neuroscienze";
 ```
 
 
