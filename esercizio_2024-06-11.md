@@ -58,7 +58,7 @@ SELECT
 	*
     #COUNT(`id`)
 FROM students
-WHERE YEAR(`date_of_birth`) < 1995;
+WHERE DATE_SUB(NOW(), INTERVAl 30 YEAR) > `date_of_birth`;
 ```
 
 
