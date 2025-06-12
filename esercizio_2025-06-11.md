@@ -54,11 +54,6 @@ WHERE `cfu` > 10;
 ### Consegna 3: Selezionare tutti gli studenti che hanno più di 30 anni
 
 ```sql
--- SELECT 
--- 	*
---     #COUNT(`id`)
--- FROM students
--- WHERE DATE_SUB(NOW(), INTERVAl 31 YEAR) > `date_of_birth`;
 SELECT 
 	*
     #COUNT(`id`)
@@ -104,11 +99,6 @@ WHERE `date` = "2020-06-20" AND `hour` > "14:00:00";
 ### Consegna 6: Selezionare tutti i corsi di laurea magistrale (38)
 
 ```sql
--- SELECT 
--- 	*
---     #COUNT(`id`)
--- FROM degrees
--- WHERE `name` LIKE "Corso di Laurea Magistrale%";
 SELECT 
 	*
     #COUNT(`id`)
