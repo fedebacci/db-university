@@ -184,7 +184,107 @@ ORDER BY `degrees`.`id`, `courses`.`id`, `teachers`.`surname`, `teachers`.`name`
 ### Consegna 6: Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 
 ```sql
+SELECT
+    `departments`.`id` AS `department_id`,
+    `departments`.`name` AS `department_name`,
+    
+    COUNT(`teachers`.`id`) AS `teacher_number_of_courses`,
+    `teachers`.`surname` AS `teacher_surname`,
+    `teachers`.`name` AS `teacher_name`,
+    `teachers`.`phone` AS `teacher_phone`,
+    `teachers`.`email` AS `teacher_email`,
+    `teachers`.`office_address` AS `teacher_office_address`,
+    `teachers`.`office_number` AS `teacher_office_number`
+    
+FROM `teachers`
+
+INNER JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+
+INNER JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+
+INNER JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+
+WHERE `departments`.`name` = "Dipartimento di Matematica"
+
+GROUP BY `teachers`.`id`, `departments`.`id`
+
+ORDER BY `teachers`.`surname`, `teachers`.`name`;
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
