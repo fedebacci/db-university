@@ -21,14 +21,14 @@ SELECT
 	`degrees`.`id` AS `degree_id`,
 	`degrees`.`name` AS `degree_name`,
     
-	`students`.`id`,
-	`students`.`name`,
-	`students`.`surname`,
-	`students`.`date_of_birth`,
-	`students`.`fiscal_code`,
-	`students`.`enrolment_date`,
-	`students`.`registration_number`,
-	`students`.`email`
+	`students`.`id` AS `student_id`,
+	`students`.`name` AS `student_name`,
+	`students`.`surname` AS `student_surname`,
+	`students`.`date_of_birth` AS `student_date_of_birth`,
+	`students`.`fiscal_code` AS `student_fiscal_code`,
+	`students`.`enrolment_date` AS `student_enrolment_date`,
+	`students`.`registration_number` AS `student_registration_number`,
+	`students`.`email` AS `student_email`
     
 FROM `degrees`
 
@@ -47,12 +47,12 @@ SELECT
 	`departments`.`id` AS `department_id`,
 	`departments`.`name` AS `department_name`,
     
-    `degrees`.`id`,
-    `degrees`.`name`,
-    `degrees`.`level`,
-    `degrees`.`address`,
-    `degrees`.`email`,
-    `degrees`.`website`
+    `degrees`.`id`, AS `degree_id`,
+    `degrees`.`name`, AS `degree_name`,
+    `degrees`.`level`, AS `degree_level`,
+    `degrees`.`address`, AS `degree_address`,
+    `degrees`.`email`, AS `degree_email`,
+    `degrees`.`website` AS `degree_website`
     
 FROM `degrees`
 
@@ -67,6 +67,29 @@ WHERE `degrees`.`level` = "magistrale" AND `departments`.`name` = "Dipartimento 
 ### Consegna 3: Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
 ```sql
+SELECT
+	`teachers`.`id` AS `teacher_id`,
+    `teachers`.`name` AS `teacher_name`,
+    `teachers`.`surname` AS `teacher_surname`,
+    
+    `courses`.`id` AS `course_id`,
+    `courses`.`degree_id` AS `course_degree_id`,
+    `courses`.`name` AS `course_name`,
+    `courses`.`description` AS `course_description`,
+    `courses`.`period` AS `course_period`,
+    `courses`.`year` AS `course_year`,
+    `courses`.`cfu` AS `course_cfu`,
+    `courses`.`website` AS `course_website`
+    
+FROM `teachers`
+
+INNER JOIN `course_teacher`
+ON `teachers`.`id`= `course_teacher`.`teacher_id`
+
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+
+WHERE `teachers`.`id` = 44;
 ```
 
 
