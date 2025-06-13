@@ -215,6 +215,29 @@ WHERE `departments`.`name` = "Dipartimento di Matematica"
 GROUP BY `teachers`.`id`, `departments`.`id`
 
 ORDER BY `teachers`.`surname`, `teachers`.`name`;
+
+----------------------------------------------------------------------------------------------------------------------
+
+-- Soluzione migliore del group by --> NON COMPATTA LE RIGHE DURANTE LA QUERY, RIMUOVENDO RELATIVI PROBLEMI E SFORZO COMPUTAZIONALE
+-- Nasconde le righe che si ripetono DOPO LA FINE DELLA QUERY, senza cambiare nient'altro
+SELECT DISTINCT
+    `teachers`.*
+    
+FROM `teachers`
+
+INNER JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+
+INNER JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+
+INNER JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+
+WHERE `departments`.`name` = "Dipartimento di Matematica";
 ```
 
 
@@ -262,4 +285,60 @@ WHERE `exam_student`.`vote` >= 18
 GROUP BY `students`.`id`, `courses`.`id`, `exam_student`.`exam_id`
 
 ORDER BY `students`.`surname`, `students`.`name`, `exams`.`id`, `courses`.`id`, `exam_student`.`vote`;
+
+------------------------------------------------------------------
+
+-- ERRORE: RAGGRUPPANDO PER COURSES E POI CONTANDO L'ID ovviamente MI ESCE SEMPRE 1 TENTATIVO. VEDI SOTTO PER SOLUZIONE
+SELECT
+	`students`.`id` AS `student_id`,
+	`students`.`surname` AS `student_surname`,
+	`students`.`name` AS `student_name`,
+
+    COUNT(`courses`.`id`) AS `tries`,
+	`courses`.`id` AS `course_id`,
+	`courses`.`name` AS `course_name`
+    
+FROM `students`
+
+INNER JOIN `exam_student`
+ON `students`.`id` = `exam_student`.`student_id`
+
+INNER JOIN `exams`
+ON `exams`.`id` = `exam_student`.`exam_id`
+
+INNER JOIN `courses`
+ON `courses`.`id` = `exams`.`course_id`
+
+WHERE `exam_student`.`vote` >= 18
+
+GROUP BY `students`.`id`, `courses`.`id`
+
+ORDER BY `students`.`surname`, `students`.`name`, `courses`.`id`;
+
+------------------------------------------------------------------
+
+-- SOLUZIONE: CONTO I VOTI, NON GLI ID DEI CORSI
+SELECT
+	`students`.`id` AS `student_id`,
+	`students`.`name` AS `student_name`,
+	`students`.`surname` AS `student_name`,
+	`courses`.`id` AS `course_id`,
+	`courses`.`name` AS `course_name`,
+    COUNT(`exam_student`.`vote`) AS `tries`,
+    MAX(`exam_student`.`vote`) AS `passing_vote`
+    
+FROM `students`
+
+INNER JOIN `exam_student`
+ON `students`.`id` = `exam_student`.`student_id`
+
+INNER JOIN `exams`
+ON `exams`.`id` = `exam_student`.`exam_id`
+
+INNER JOIN `courses`
+ON `courses`.`id` = `exams`.`course_id`
+
+GROUP BY `courses`.`id`, `students`.`id`
+
+HAVING `passing_vote` > 18;
 ```
